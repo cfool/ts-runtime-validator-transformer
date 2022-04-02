@@ -1,0 +1,32 @@
+{
+  "name": "ts-runtime-validator-transformer",
+  "version": "0.1.0",
+  "description": "a runtime validator for typescript",
+  "files": [
+    "dist",
+    "types",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "dependencies": {
+    "@types/node": "^17.0.23",
+    "json-schema": "^0.4.0",
+    "jsonschema": "^1.4.0"
+  },
+  "peerDependencies": {
+    "typescript": "^4.6.3"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  },
+  "scripts": {
+    "build": "yarn build:pre && yarn build:type && yarn build:src",
+    "build:type": "tsc index.ts --emitDeclarationOnly --outDir types -d",
+    "build:src": "tsc index.ts --outDir dist",
+    "build:pre": "rimraf dist types"
+  },
+  "author": "cfool <cfool.wang@gmail.com>",
+  "license": "MIT"
+}
